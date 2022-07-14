@@ -30,8 +30,30 @@
   src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 ></script>
 
-<script>
-  var apiKey = "<%= process.env.API_KEY %>";
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "<%= process.env.FIREBASE_API_KEY %>",
+    authDomain: "message-stream-75839.firebaseapp.com",
+    databaseURL:
+      "https://message-stream-75839-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "message-stream-75839",
+    storageBucket: "message-stream-75839.appspot.com",
+    messagingSenderId: "40668410814",
+    appId: "1:40668410814:web:bc275a0568aaf4afe13fef",
+    measurementId: "G-6257DQMZDR",
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 </script>
 
 <!-- then our app's own js file -->
